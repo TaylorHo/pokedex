@@ -1,0 +1,1 @@
+mongoimport --db=database01 --collection=pokemons --jsonArray --file=docker-entrypoint-initdb.d/pokemons.json

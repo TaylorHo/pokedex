@@ -1,0 +1,15 @@
+version: '3'
+services:
+
+  # Create a MongoDB database with sample data (stored in ./data)
+  database:
+    image: mongo
+    container_name: database
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d/
+
+  # Todo: Pull the image (that will be created) and run the pokedex
+  # MONGO_URI: mongodb://localhost:27017/
