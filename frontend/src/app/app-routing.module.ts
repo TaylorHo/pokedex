@@ -1,8 +1,20 @@
+// ------------------- Default --------------------
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+// ------------------------------------------------
 
-const routes: Routes = [];
 
+// -------------------- Paths ---------------------
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./pages/pages.module').then(page => page.PagesModule)
+  }
+];
+// ------------------------------------------------
+
+
+// ---------------- Main Function -----------------
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

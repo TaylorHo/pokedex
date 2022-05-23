@@ -1,0 +1,128 @@
+:host {
+
+  .pokelist {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 1.2rem 0;
+    width: 100%;
+    
+    .pokemon {
+      display: flex;
+
+      height: 8rem;
+  
+      color: var(--primary-color);
+      text-decoration: none;
+  
+      padding: 1rem;
+      background: var(--white);
+      border-radius: .6rem;
+  
+      position: relative;
+
+      @media screen and (max-width: 38rem){
+        width: 100%;
+        margin: .6rem 0;
+      }
+
+      @media screen and (min-width: 38rem){
+        width: 14.2rem;
+        margin: .6rem;
+      }
+
+      @media screen and (min-width: 52rem){
+        width: 18rem;
+        margin: .6rem;
+      }
+
+  
+      &__info {
+        h2 {
+          font-size: 1.2rem;
+          font-weight: 700;
+          font-style: italic;
+          text-transform: capitalize;
+  
+          margin-bottom: .2rem;
+        }
+        h4 {
+          font-size: 1rem;
+          font-style: italic;
+  
+          margin-bottom: 1rem;
+        }
+  
+        ul {
+          display: flex;
+          flex-direction: column;
+  
+          li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+  
+            background-color: var(--grey);
+            font-size: .76rem;
+            border-radius: .8rem;
+            padding: .2rem;
+            width: 4.2rem;
+            margin-bottom: .4rem;
+          }
+        }
+      }
+  
+      &__image {
+        position: absolute;
+        bottom: 1rem;
+        right: 2rem;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        span {
+          border-radius: 50%;
+          width: 8rem;
+          height: 8rem;
+  
+          z-index: 1;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+  
+          // implement others
+          &#grama {
+            background: rgba(0, 255, 13, 0.3);
+          }
+          &#fogo {
+            background: rgba(255, 0, 0, 0.3);
+          }
+          &#água {
+            background: rgba(0, 217, 255, 0.3);
+          }
+          &#inseto {
+            background: rgba(255, 208, 0, 0.4);
+          }
+          &#normal {
+            background: rgba(255, 128, 0, 0.4);
+          }
+        }
+  
+        img {
+          height: 6rem;
+          width: 6rem;
+          z-index: 2;
+
+          // for pokemons that wasn't captured yet
+          // -webkit-filter: brightness(0%);
+          // filter: brightness(0%);
+        }
+      }
+    }
+
+  }
+}

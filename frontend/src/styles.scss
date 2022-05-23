@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+// ------------ IMPORTS ------------
+@import './scss-files/reset.scss';
+@import './scss-files/variables.scss';
+@import './scss-files/common.scss';
+@import './scss-files/animations.scss';
+// ---------------------------------
+
+
+// ------------- SCSS --------------
+html {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--primary-color);
+}
+
+body {
+  padding: 0 5% 5%;
+  margin: 0 auto; //centralized
+  box-sizing: border-box;
+}
+
+// main {
+//   width: 38rem;
+//   margin: 0 auto; //centralized
+//   box-sizing: border-box;
+// }
+// ---------------------------------

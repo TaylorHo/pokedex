@@ -1,0 +1,25 @@
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	padding: 1.2rem 0;
+	border-radius: .75rem;
+
+	text-decoration: none;
+
+	&__primary {
+		color: var(--white);
+		background: var(--primary-color);
+	}
+
+	&__secondary {
+		color: var(--white);
+		background: var(--secondary-color);
+	}
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
