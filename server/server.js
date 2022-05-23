@@ -17,7 +17,7 @@ app.use(cors());
 
 
 // ------------------ Start Database --------------------
-// dbConnect();
+dbConnect();
 // ------------------------------------------------------
 
 
@@ -27,8 +27,13 @@ const swaggerOptions = {
     info: {
       title: "Pokemons REST API - CERTI Challenge",
       description:
-        "Description of the API",
+        "API to get Pokemons info from the MongoDB database. Was created to the CERTI Challenge for Fullstack Developer by Taylor Hoffmann.",
+      license: {
+        name: "MIT",
+        url: "https://github.com/TaylorHo/pokedex/blob/master/LICENSE"
+      }
     },
+    basePath: "/api/",
   },
   apis: [
     "./routes/pokemons.js",
@@ -40,7 +45,6 @@ app.use(
   swaggerUi.serve,
   swaggerUi.setup(swaggerDocs)
 );
-app.use("/pokemons", pokemons);
 // ------------------------------------------------------
 
 
@@ -48,6 +52,14 @@ app.use("/pokemons", pokemons);
 app.use('/', express.static(`${__dirname}/web/`));
 app.get('/', async (req, res) => {
   res.sendFile(`${__dirname}/web/index.html`);
+});
+// ------------------------------------------------------
+
+
+// -------------------- API Routes ----------------------
+app.use("/api/pokemon", pokemons);
+app.use("/api/", (req, res) => {
+  res.status(200).json({message: "To use the Pokemon API go to /api/pokemon/ or read the docs at /api-docs/"});
 });
 // ------------------------------------------------------
 
