@@ -18,7 +18,12 @@ export class ApiService {
 
       // referência para os taps e maps ===> https://rxjs.dev/guide/overview
       tap(res => res),
-      tap(res => res.data)
+    );
+  }
+
+  public searchSinglePokemon(name: string):Observable<any> {
+    return this.http.get<any>(`${this.url}/?s=${name}`).pipe(
+      map(res => res)
     );
   }
 

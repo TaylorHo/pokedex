@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { debounceTime, distinctUntilChanged, fromEvent } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -8,7 +9,11 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ListComponent implements OnInit {
 
-  public allPokemons: any;  
+  @ViewChild('input')
+  inputElement!: ElementRef;
+  public allPokemons: any;
+  public pokemonToSearch: string = '';
+  public lastSearch: string = '';
 
   constructor(
     private apiService: ApiService
@@ -20,12 +25,24 @@ export class ListComponent implements OnInit {
     );
   }
 
-  public getSearchValue(value: string) {
-    const filter = this.allPokemons.filter((res: any) => {
-      return !res.name.indexOf(value.toLowerCase());
-    })
+  ngAfterViewInit(): void {
+    fromEvent(this.inputElement.nativeElement, 'keyup').pipe(debounceTime(800), distinctUntilChanged()).subscribe(() => {
+      if(this.lastSearch != this.pokemonToSearch){
+        this.searchPokemon();
+      }
+    });
+  }
 
-    this.allPokemons = filter;
+  onInput(event: any) {
+    this.pokemonToSearch = event.target.value;
+  }
+
+  public searchPokemon() {
+    this.lastSearch = this.pokemonToSearch;
+    
+    this.apiService.searchSinglePokemon(this.pokemonToSearch).subscribe(
+      res => this.allPokemons = res.data
+    );
   }
 
 }

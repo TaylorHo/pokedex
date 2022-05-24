@@ -1,5 +1,9 @@
 <!-- Search Bar | Pokemons -->
-<app-search (searchEmitter)="getSearchValue($event)"></app-search>
+<form>
+  <input type="text" #input (keyup)="onInput($event)" placeholder="Procurar Pokemon..."/>
+  <img src="assets/search.svg" alt="Procurar Pokemon"/>
+</form>
+
 
 <section class="pokelist fadeIn">
   <ng-template ngFor let-pokemon [ngForOf]="allPokemons">
