@@ -67,7 +67,7 @@
       }
 
       @media screen and (min-width: 38rem){
-        width: 14.2rem;
+        width: 13.8rem;
         margin: .6rem;
       }
 
@@ -147,6 +147,36 @@
           &#normal {
             background: rgba(255, 128, 0, 0.4);
           }
+          &#veneno {
+            background: rgba(255, 128, 0, 0.4);
+          }
+          &#fantasma {
+            background: rgba(255, 128, 0, 0.4);
+          }
+          &#elétrico {
+            background: rgba(255, 128, 0, 0.4);
+          }
+          &#terra {
+            background: rgba(255, 128, 0, 0.4);
+          }
+          &#fada {
+            background: rgba(255, 128, 0, 0.4);
+          }
+          &#obscuro {
+            background: rgba(255, 128, 0, 0.4);
+          }
+          &#voador {
+            background: rgba(255, 128, 0, 0.4);
+          }
+          &#lutador {
+            background: rgba(255, 128, 0, 0.4);
+          }
+          &#psíquico {
+            background: rgba(255, 128, 0, 0.4);
+          }
+          &#pedra {
+            background: rgba(255, 128, 0, 0.4);
+          }
         }
   
         img {
@@ -161,5 +191,31 @@
       }
     }
 
+  }
+
+  .loadMore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin-top: 2rem;
+    cursor: pointer;
+
+    transition: all ease .2s;
+    opacity: .62;
+
+    &:hover {
+      opacity: .92;
+    }
+
+    img {
+      margin-right: .6rem;
+    }
+
+    p {
+      color: #fff;
+      font-size: 1.2rem;
+    }
   }
 }

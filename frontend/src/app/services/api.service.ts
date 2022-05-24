@@ -13,16 +13,16 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
-  public listPokemons():Observable<any> {
-    return this.http.get<any>(this.url).pipe(
+  public listPokemons(page: number = 1):Observable<any> {
+    return this.http.get<any>(`${this.url}/?page=${page}`).pipe(
 
       // referência para os taps e maps ===> https://rxjs.dev/guide/overview
       tap(res => res),
     );
   }
 
-  public searchSinglePokemon(name: string):Observable<any> {
-    return this.http.get<any>(`${this.url}/?s=${name}`).pipe(
+  public searchSinglePokemon(name: string, page: number = 1):Observable<any> {
+    return this.http.get<any>(`${this.url}/?s=${name}&page=${page}`).pipe(
       map(res => res)
     );
   }

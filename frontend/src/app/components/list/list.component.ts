@@ -14,13 +14,14 @@ export class ListComponent implements OnInit {
   public allPokemons: any;
   public pokemonToSearch: string = '';
   public lastSearch: string = '';
+  public currentPage: number = 1;
 
   constructor(
     private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
-    this.apiService.listPokemons().subscribe(
+    this.apiService.listPokemons(this.currentPage).subscribe(
       res => this.allPokemons = res.data
     );
   }
@@ -39,10 +40,26 @@ export class ListComponent implements OnInit {
 
   public searchPokemon() {
     this.lastSearch = this.pokemonToSearch;
+    this.currentPage = 1;
     
     this.apiService.searchSinglePokemon(this.pokemonToSearch).subscribe(
       res => this.allPokemons = res.data
     );
+  }
+
+  public loadMore() {
+    this.currentPage++;
+    
+    if(this.pokemonToSearch){
+      this.apiService.searchSinglePokemon(this.pokemonToSearch, this.currentPage).subscribe(
+        res => this.allPokemons = this.allPokemons.concat(res.data)
+      );    
+    } else {
+      this.apiService.listPokemons(this.currentPage).subscribe(
+        res => this.allPokemons = this.allPokemons.concat(res.data)
+      );
+    }
+
   }
 
 }
