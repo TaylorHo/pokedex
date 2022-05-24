@@ -28,7 +28,7 @@ export class ApiService {
   }
 
   public getSinglePokemon(id: string):Observable<any> {
-    return this.http.get<any>(`${this.url}/${id}`).pipe(
+    return this.http.get<any>(`${this.url}/single/${id}`).pipe(
       map(res => res)
     );
   }

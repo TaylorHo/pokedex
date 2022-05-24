@@ -192,30 +192,5 @@
     }
 
   }
-
-  .loadMore {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    margin-top: 2rem;
-    cursor: pointer;
-
-    transition: all ease .2s;
-    opacity: .62;
-
-    &:hover {
-      opacity: .92;
-    }
-
-    img {
-      margin-right: .6rem;
-    }
-
-    p {
-      color: #fff;
-      font-size: 1.2rem;
-    }
-  }
+  
 }
