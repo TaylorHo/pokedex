@@ -7,7 +7,7 @@ import { map, Observable, tap } from 'rxjs';
 })
 export class ApiService {
 
-  private url: string = 'http://localhost:3000/api/pokemon/';
+  private url: string = 'http://localhost:3000/api/pokemon';
 
   constructor(
     private http: HttpClient
