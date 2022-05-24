@@ -46,7 +46,38 @@ async function getPokemonById(id) {
   };
 }
 
+async function getMultiplePokemonsById(ids) {
+  let pokemons;
+
+  try {
+    ids = JSON.parse(ids);
+  } catch (err) {
+    return { success: false, message: "An invalid array was passed", error_code: "syntax_error" };
+  }
+
+  const warkableIds = ids.map((singleID) => {
+    return {
+      id: parseInt(singleID)
+    }
+  });
+
+  try {
+    pokemons = await Pokemon.find({ $or: warkableIds }).select("-_id -stats -jp_name");
+    if (pokemons == null) {
+      return { success: false, message: "Pokemons not found", error_code: "not_found" };
+    }
+  } catch (err) {
+    return { success: false, message: "Mongo Select Error", error_code: "mongo_error" };
+  }
+
+  return {
+    success: true,
+    data: pokemons,
+  };
+}
+
 module.exports = {
   getAllPokemons,
   getPokemonById,
+  getMultiplePokemonsById,
 };
