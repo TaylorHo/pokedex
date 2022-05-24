@@ -1,12 +1,44 @@
 <!-- Search Bar | Pokemons -->
 <form>
-  <input type="text" #input (keyup)="onInput($event)" placeholder="Procurar Pokemon..."/>
-  <img src="assets/search.svg" alt="Procurar Pokemon"/>
+  <input type="text" #input (keyup)="onInput($event)" placeholder="Capturar Pokemon..."/>
+  <img src="assets/search.svg" alt="Capturar Pokemon"/>
 </form>
+
+<section class="customFilters">
+  
+  <div class="switch-button">
+    <input class="switch-button-checkbox" type="checkbox" [checked]="showOnlyMyPokemons ? false : true" (change)="filterResults($event)" />
+    <label class="switch-button-label" for="">
+      <span class="switch-button-label-span">Meus Pokemons</span>
+    </label>
+  </div>
+
+</section>
 
 
 <section class="pokelist fadeIn">
-  <ng-template ngFor let-pokemon [ngForOf]="allPokemons">
+  <ng-template ngFor let-pokemon [ngForOf]="allPokemons" *ngIf="!showOnlyMyPokemons">
+    <a [routerLink]="['info', pokemon.id]" class="pokemon allPokemons" *ngIf="pokemon.id">
+  
+      <section class="pokemon__info">
+        <h2>{{ pokemon.name }}</h2>
+        <h4>#{{ pokemon.id }}</h4>
+    
+        <ul>
+          <li *ngFor="let value of pokemon.types">
+            {{ value }}
+          </li>
+        </ul>
+      </section>
+    
+      <section class="pokemon__image">
+        <span [id]="pokemon.types[0]"></span>
+        <img [src]="pokemon.image" [alt]="pokemon.name">
+      </section>
+    
+    </a>
+  </ng-template>
+  <ng-template ngFor let-pokemon [ngForOf]="myPokemons" *ngIf="showOnlyMyPokemons">
     <a [routerLink]="['info', pokemon.id]" class="pokemon" *ngIf="pokemon.id">
   
       <section class="pokemon__info">
@@ -27,4 +59,12 @@
     
     </a>
   </ng-template>
+</section>
+
+<section class="allResults" *ngIf="!showOnlyMyPokemons">
+  <p>Sem mais resultados</p>
+</section>
+
+<section class="allResults" *ngIf="showOnlyMyPokemons && myPokemons.length == 0">
+  <p>Ainda não capturou nenhum pokemon</p>
 </section>

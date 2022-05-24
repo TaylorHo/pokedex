@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild, HostListener } from '@angular/core';
 import { debounceTime, distinctUntilChanged, fromEvent } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-list',
@@ -11,12 +12,14 @@ export class ListComponent implements OnInit {
 
   @ViewChild('input') inputElement!: ElementRef;
 
-  public allPokemons: any;
+  public allPokemons: Array<any> = [];
+  public myPokemons: Array<any> = [];
   public pokemonToSearch: string = '';
   public lastSearch: string = '';
   public currentPage: number = 1;
   public isLoadingMore: boolean = false;
   public lastPageHeight: number = 0;
+  public showOnlyMyPokemons: boolean = true;
 
   @HostListener("window:scroll", []) onWindowScroll() {
     const verticalOffset = window.pageYOffset 
@@ -39,13 +42,21 @@ export class ListComponent implements OnInit {
 }
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private storageService: StorageService
   ) { }
 
   ngOnInit(): void {
+
+    const getMyPokemons = this.storageService.getSavedPokemons();
+    this.apiService.listMultiplePokemons(getMyPokemons).subscribe(
+      res => this.myPokemons = res.data
+    );
+    
     this.apiService.listPokemons(this.currentPage).subscribe(
       res => this.allPokemons = res.data
     );
+
   }
 
   ngAfterViewInit(): void {
@@ -67,6 +78,9 @@ export class ListComponent implements OnInit {
     this.apiService.searchSinglePokemon(this.pokemonToSearch).subscribe(
       res => this.allPokemons = res.data
     );
+
+    this.showOnlyMyPokemons = false;
+
   }
 
   public loadMore() {
@@ -82,6 +96,17 @@ export class ListComponent implements OnInit {
       );
     }
 
+  }
+
+  public filterResults(event: any) {
+
+    if(event.target.checked){
+      this.showOnlyMyPokemons = false;
+    } else {
+      this.showOnlyMyPokemons = true;
+    }
+
+    this.storageService.saveNewPokemon('1');
   }
 
 }

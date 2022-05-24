@@ -15,8 +15,12 @@ export class ApiService {
 
   public listPokemons(page: number = 1):Observable<any> {
     return this.http.get<any>(`${this.url}/?page=${page}`).pipe(
+      tap(res => res),
+    );
+  }
 
-      // referência para os taps e maps ===> https://rxjs.dev/guide/overview
+  public listMultiplePokemons(list: Array<String>):Observable<any> {
+    return this.http.get<any>(`${this.url}/multiple/${JSON.stringify(list)}`).pipe(
       tap(res => res),
     );
   }
