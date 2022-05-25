@@ -84,26 +84,26 @@
       @media (max-width: 420px) {
         margin-top: .76rem;
 
-        .pokemon__name {
-          h1 {
-            font-size: 1.2rem;
-          }
+				.pokemon__name {
+					h1 {
+						font-size: 1.4rem;
+					}
 
-          h2 {
-            top: 2.2rem;
-            font-size: 1.2rem;
-          }
-        }
+					h2 {
+						top: 2.2rem;
+						font-size: 2rem;
+					}
+				}
 
-        .pokemon__status {
-          position: relative;
+				.pokemon__status {
+					position: relative;
 
-          img {
-            position: absolute;
-            top: -5rem;
-            left: 0;
-            max-width: 6rem;
-          }
+					img {
+						position: absolute;
+						top: -5rem;
+						left: 1.2rem;
+						max-width: 8rem;
+					}
 
           &__stats {
             min-height: 57vh;
