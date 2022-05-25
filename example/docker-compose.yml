@@ -17,13 +17,9 @@ services:
       - ./data/.tmp/:/data/db
   
   taylor_pokedex:
-    image: taylorho/pokedex:1.0
+    image: taylorho/pokedex
     container_name: taylor_pokedex
     ports:
       - 3000:3000
     environment:
       - MONGO_URI=mongodb://databaseUser:password@127.0.0.1:27017/database01
-    depends_on:
-      - database
-    links:
-      - database

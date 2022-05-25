@@ -102,12 +102,12 @@
 
 				.pokemon__name {
 					h1 {
-						font-size: 1.2rem;
+						font-size: 1.4rem;
 					}
 
 					h2 {
 						top: 2.2rem;
-						font-size: 1.2rem;
+						font-size: 2rem;
 					}
 				}
 
@@ -117,8 +117,8 @@
 					img {
 						position: absolute;
 						top: -5rem;
-						left: 0;
-						max-width: 6rem;
+						left: 1.2rem;
+						max-width: 8rem;
 					}
 
 					&__stats {

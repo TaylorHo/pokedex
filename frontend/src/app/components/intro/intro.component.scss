@@ -31,7 +31,11 @@
 
     .modal {
       
-      margin: 20vh 5vw 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 20vh 5%;
 
       &__content {
         
