@@ -63,7 +63,7 @@ git clone https://github.com/TaylorHo/pokedex.git && cd pokedex
 cd example
 ```
 
-**3 - Rode o container (-d é opcional, para deixar o console livre)**
+**3 - Rode o container** (-d é opcional, para deixar o console livre)
 ```
 docker-compose up -d
 ```
@@ -91,7 +91,7 @@ docker stop taylor_pokedex && docker stop taylor_pokedex_database
 docker pull taylorho/pokedex:latest
 ```
 
-**2 - Configure um Banco de Dados [MongoDB](https://www.mongodb.com/), e importe a [lista de Pokemons](./example/data/pokemons.json) para uma collection chamada "pokemons".**
+**2 - Configure um Banco de Dados [MongoDB](https://www.mongodb.com/)**, e importe a [lista de Pokemons](./example/data/pokemons.json) para uma collection chamada "pokemons".
   - Uma das maneiras mais fáceis é usar um [Cloud da própria MongoDB](https://www.mongodb.com/cloud), gratuito.
 
 **3 - Copie a URI de conexão do Mongo para algum lugar seguro**

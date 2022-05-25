@@ -6,7 +6,7 @@ Servidor e API criada com [Node.js](https://nodejs.dev/) e [Express](https://exp
 &nbsp;
 ## Instalação
 
-1 - Clone este repositório e acesse a pasta "server"
+**1 - Clone este repositório e acesse a pasta "server"**
   - por ssh
 ```
 git clone git@github.com:TaylorHo/pokedex.git && cd pokedex/server
@@ -16,12 +16,12 @@ git clone git@github.com:TaylorHo/pokedex.git && cd pokedex/server
 git clone https://github.com/TaylorHo/pokedex.git && cd pokedex/server
 ```
 
-2 - Instale as dependências com [NPM](https://www.npmjs.com/)
+**2 - Instale as dependências com [NPM](https://www.npmjs.com/)**
 ```
 npm i
 ```
 
-3 - Rode a aplicação
+**3 - Rode a aplicação**
   - É necessário definir uma variável de ambiente chamada ```MONGO_URI```, com a URI de um banco da dados MongoDB
 ```
 MONGO_URI="sua_uri_do_mongodb" node server.js
@@ -29,6 +29,8 @@ MONGO_URI="sua_uri_do_mongodb" node server.js
 
 Pronto!! Aplicação rodando =)
 
+
+&nbsp;
 ### Documentação
 
 A documentação da API (com todos os dados necessários para entender seu funcionamento) vai estar disponível em:
