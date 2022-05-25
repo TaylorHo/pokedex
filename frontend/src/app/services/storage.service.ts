@@ -36,4 +36,15 @@ export class StorageService {
 
   }
 
+  public verifyPokemon(id: string) {
+    const pokemons = this.getSavedPokemons();
+
+    if(pokemons.length > 0 && pokemons.includes(id)){
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
 }

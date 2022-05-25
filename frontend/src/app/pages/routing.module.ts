@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 // -------------------- Pages ---------------------
 import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
+import { BattleComponent } from './battle/battle.component';
 // ------------------------------------------------
 
 
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'info/:id',
     component: InfoComponent
+  },
+  {
+    path: 'battle/:id',
+    component: BattleComponent
   }
 ];
 // ------------------------------------------------

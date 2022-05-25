@@ -4,6 +4,7 @@ import { forkJoin } from 'rxjs';
 
 // ---- Services -----
 import { ApiService } from 'src/app/services/api.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-info',
@@ -14,17 +15,20 @@ export class InfoComponent implements OnInit {
 
   public pokemon: any;
   public isLoaded: boolean = false;
+  public ownThePokemon: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private storageService: StorageService,
   ) { }
 
   ngOnInit(): void {
-    this.getCurrentPokemon();
+    this.getCurrentPokemon;
+    this.verifyPokemonOwn();
   }
 
-  public getCurrentPokemon() {
+  get getCurrentPokemon() {
     const id = this.activatedRoute.snapshot.params['id'];
     const pokemon = this.apiService.getSinglePokemon(id);
 
@@ -32,6 +36,13 @@ export class InfoComponent implements OnInit {
       this.pokemon = res.data;
       this.isLoaded = true;
     });
+  }
+
+  public verifyPokemonOwn() {
+    const id = this.activatedRoute.snapshot.params['id'];
+    const pokemon = this.storageService.verifyPokemon(id);
+
+    this.ownThePokemon = pokemon;
   }
 
 }

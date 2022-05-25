@@ -13,6 +13,7 @@ import { ComponentsModule } from '../components/component.module';
 // -------------------- Pages ---------------------
 import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
+import { BattleComponent } from './battle/battle.component';
 // ------------------------------------------------
 
 
@@ -20,7 +21,8 @@ import { InfoComponent } from './info/info.component';
 @NgModule({
   declarations: [
     HomeComponent,
-    InfoComponent
+    InfoComponent,
+    BattleComponent
   ],
   imports: [
     CommonModule,

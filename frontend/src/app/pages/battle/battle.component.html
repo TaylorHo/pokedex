@@ -19,27 +19,12 @@
         <img [src]="pokemon.image" [alt]="pokemon.name" class="slideInDown">
     
         <article class="pokemon__status__stats fadeIn">
-          <section>
-            <h3>Estatísticas</h3>
-    
-            <ol *ngIf="ownThePokemon">
-              <li *ngFor="let value of pokemon.stats">
-                {{ value.stat.replace("-", " ") }}
-    
-                <strong>{{ value.value }}</strong>
-              </li>
-            </ol>
-
-            <span *ngIf="!ownThePokemon">
-              Capture o Pokemon para ver seus dados!!
-            </span>
-
+          <section class="fadeIn">
+            <h3>{{ gameTitle }}</h3>
+            <app-dice [diceValue]="diceValue"></app-dice>
           </section>
     
-          <section>
-            <a [routerLink]="['/battle', pokemon.id]" class="btn btn__tertiary capturePokemon" *ngIf="!ownThePokemon">Capturar</a>
-            <a [routerLink]="['']" class="btn btn__secondary">Voltar</a>
-          </section>
+          <a class="btn btn__tertiary" (click)="rollDice()">Rolar Dado</a>
         </article>
       </section>
     </div>
