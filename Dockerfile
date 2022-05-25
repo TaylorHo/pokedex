@@ -5,7 +5,7 @@ FROM node:16-alpine as node
 WORKDIR /usr/app/frontend
 COPY ./frontend .
 RUN npm install
-RUN npm run build --prod
+RUN npm run build
 
 
 ## Run the server (API + Front)

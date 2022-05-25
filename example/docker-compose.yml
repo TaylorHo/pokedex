@@ -6,10 +6,24 @@ services:
     image: mongo
     container_name: database
     restart: always
+    environment:
+      - MONGO_INITDB_DATABASE=database01
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASS}
     ports:
       - 27017:27017
     volumes:
       - ./data:/docker-entrypoint-initdb.d/
-
-  # Todo: Pull the image (that will be created) and run the pokedex
-  # MONGO_URI: mongodb://localhost:27017/
+      - ./data/.tmp/:/data/db
+  
+  taylor_pokedex:
+    image: taylorho/pokedex:1.0
+    container_name: taylor_pokedex
+    ports:
+      - 3000:3000
+    environment:
+      - MONGO_URI=mongodb://databaseUser:password@127.0.0.1:27017/database01
+    depends_on:
+      - database
+    links:
+      - database

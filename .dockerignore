@@ -3,3 +3,4 @@ node_modules
 .vscode
 server/web
 frontend/dist
+example/data/.tmp
