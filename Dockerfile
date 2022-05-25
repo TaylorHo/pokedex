@@ -25,6 +25,6 @@ CMD [ "node", "server.js" ]
 
 # Request the required env var (MONGO_URI)
 
-COPY entrypoint.sh /usr/bin/
+COPY ./server/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
