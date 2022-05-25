@@ -2,9 +2,9 @@ version: '3'
 services:
 
   # Create a MongoDB database with sample data (stored in ./data)
-  database:
+  taylor_pokedex_database:
     image: mongo
-    container_name: database
+    container_name: taylor_pokedex_database
     restart: always
     environment:
       - MONGO_INITDB_DATABASE=database01
@@ -22,4 +22,4 @@ services:
     ports:
       - 3000:3000
     environment:
-      - MONGO_URI=mongodb://databaseUser:password@127.0.0.1:27017/database01
+      - MONGO_URI=mongodb://${DB_USER}:${DB_PASS}@127.0.0.1:27017/database01
