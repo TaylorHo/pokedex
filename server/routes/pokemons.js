@@ -229,7 +229,11 @@ router.get("/single/:id", async (req, res) => {
         res.status(503).json(response);
         break;
       default:
-        res.status(500).json({ success: false, message: "Unhandled Server/API Error", error_code: "unhandled_error" });
+        res.status(500).json({
+          success: false,
+          message: "Unhandled Server/API Error",
+          error_code: "unhandled_error"
+        });
         break;
     }
 
@@ -356,7 +360,11 @@ router.get("/single/:id", async (req, res) => {
         res.status(503).json(response);
         break;
       default:
-        res.status(500).json({ success: false, message: "Unhandled Server/API Error", error_code: "unhandled_error" });
+        res.status(500).json({
+          success: false,
+          message: "Unhandled Server/API Error",
+          error_code: "unhandled_error"
+        });
         break;
     }
 

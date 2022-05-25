@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Schema of each stat of the Pokemon
 const pokemonStatsSchema = new Schema({
   stat: {
     type: String,
@@ -10,6 +11,7 @@ const pokemonStatsSchema = new Schema({
   },
 });
 
+// Pokemon DB Scheema
 const pokemonSchema = new Schema(
   {
     name: {
