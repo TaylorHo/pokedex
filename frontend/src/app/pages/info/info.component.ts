@@ -29,12 +29,12 @@ export class InfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCurrentPokemon;
+    this.getCurrentPokemon();
     this.verifyPokemonOwn();
   }
 
   // Get the information of the current Pokemon, specified by the ID
-  get getCurrentPokemon() {
+  public getCurrentPokemon() {
     const pokemon = this.apiService.getSinglePokemon(
       this.activatedRoute.snapshot.params['id']
     );

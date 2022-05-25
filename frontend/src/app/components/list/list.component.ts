@@ -66,10 +66,16 @@ export class ListComponent implements OnInit {
     const getMyPokemons = this.storageService.getSavedPokemons();
     this.myPokemonsIds = getMyPokemons;
 
-    // Fill "my Pokemons" array
-    this.apiService.listMultiplePokemons(getMyPokemons).subscribe(
-      res => this.myPokemons = res.data
-    );
+    if(getMyPokemons.length > 0){
+
+      // Fill "my Pokemons" array
+      this.apiService.listMultiplePokemons(getMyPokemons).subscribe(
+        res => this.myPokemons = res.data
+      );
+
+    } else {
+      this.myPokemons = [];
+    }
     
     // Fill "all Pokemons" array
     this.apiService.listPokemons(this.currentPage).subscribe(

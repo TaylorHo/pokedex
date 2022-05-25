@@ -64,29 +64,35 @@ async function getMultiplePokemonsById(ids) {
     return { success: false, message: "An invalid array was passed", error_code: "syntax_error" };
   }
 
-  // create the query with all the specified IDs
-  const warkableIds = ids.map((singleID) => {
+  if(ids.length > 0){
+    // create the query with all the specified IDs
+    const warkableIds = ids.map((singleID) => {
+      return {
+        id: parseInt(singleID)
+      }
+    });
+
+    try {
+      pokemons = await Pokemon.find({ $or: warkableIds }).select("-_id -stats -jp_name");
+      if (pokemons == null) {
+        // Inexistent IDs
+        return { success: false, message: "Pokemons not found", error_code: "not_found" };
+      }
+    } catch (err) {
+      // Error executing the query
+      return { success: false, message: "Mongo Select Error", error_code: "mongo_error" };
+    }
+
+    // Return the Pokemon Data
     return {
-      id: parseInt(singleID)
-    }
-  });
-
-  try {
-    pokemons = await Pokemon.find({ $or: warkableIds }).select("-_id -stats -jp_name");
-    if (pokemons == null) {
-      // Inexistent IDs
-      return { success: false, message: "Pokemons not found", error_code: "not_found" };
-    }
-  } catch (err) {
-    // Error executing the query
-    return { success: false, message: "Mongo Select Error", error_code: "mongo_error" };
+      success: true,
+      data: pokemons,
+    };
+  } else {
+    // Empty array
+    return { success: false, message: "An invalid array was passed", error_code: "syntax_error" };
   }
-
-  // Return the Pokemon Data
-  return {
-    success: true,
-    data: pokemons,
-  };
+  
 }
 
 
