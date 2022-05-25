@@ -125,7 +125,7 @@
     align-items: center;
     justify-content: center;
   
-    padding: 1.2rem 0;
+    padding: 1.2rem 0 3rem;
     width: 100%;
     
     .pokemon {
@@ -229,34 +229,43 @@
             background: rgba(255, 128, 0, 0.4);
           }
           &#veneno {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(98, 0, 255, 0.4);
           }
           &#fantasma {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(153, 0, 255, 0.4);
           }
           &#elétrico {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(255, 251, 0, 0.4);
           }
           &#terra {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(212, 106, 0, 0.4);
           }
           &#fada {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(247, 0, 255, 0.4);
           }
           &#obscuro {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(46, 23, 0, 0.4);
           }
           &#voador {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(0, 255, 213, 0.4);
           }
           &#lutador {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(180, 123, 0, 0.4);
           }
           &#psíquico {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(0, 102, 255, 0.4);
           }
           &#pedra {
-            background: rgba(255, 128, 0, 0.4);
+            background: rgba(167, 167, 167, 0.4);
+          }
+          &#metálico {
+            background: rgba(204, 204, 204, 0.4);
+          }
+          &#gelo {
+            background: rgba(116, 250, 255, 0.4);
+          }
+          &#dragão {
+            background: rgba(255, 0, 0, 0.4);
           }
         }
   

@@ -64,7 +64,9 @@ export class BattleComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     const pokemon = this.storageService.verifyPokemon(id);
 
-    this._router.navigate([`info`, id]);
+    if(pokemon){
+      this._router.navigate([`info`, id]);
+    }
 
   }
 

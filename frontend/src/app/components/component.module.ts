@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
 import { DiceComponent } from './dice/dice.component';
+import { IntroComponent } from './intro/intro.component';
 // ------------------------------------------------
 
 
@@ -17,12 +18,14 @@ import { DiceComponent } from './dice/dice.component';
   declarations: [
     HeaderComponent,
     ListComponent,
-    DiceComponent
+    DiceComponent,
+    IntroComponent
   ],
   exports: [
     HeaderComponent,
     ListComponent,
-    DiceComponent
+    DiceComponent,
+    IntroComponent
   ],
   imports: [
     CommonModule,

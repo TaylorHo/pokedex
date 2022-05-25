@@ -1,0 +1,18 @@
+<span (click)="showIntro()">?</span>
+
+<section *ngIf="showIntroMessage" class="fadeIn">
+  <div class="modal">
+    <div class="modal__content">
+
+      <a class="modal__content__close" (click)="closeIntro()">Fechar</a>
+  
+      <h2>Como Jogar?</h2>
+  
+      <p><strong>1.</strong> Procure um Pokemon pelo nome ou pela lista (acessando a aba "Todos os Pokemons").</p><br/>
+      <p><strong>2.</strong> Selecione o Pokemon que deseja capturar, e clique em "Capturar"</p><br/>
+      <p><strong>3.</strong> Clique em "Rolar o Dado". Se você tirar um valor maior que 3, capturou o Pokemon com sucesso!! Se não, tente novamente!</p><br/>
+      <p><strong>4.</strong> Acesse a página inicial para ver quais Pokemons você já capturou!</p><br/>
+  
+    </div>
+  </div>
+</section>
