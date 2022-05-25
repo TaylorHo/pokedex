@@ -33,7 +33,7 @@
     
       <section class="pokemon__image">
         <span [id]="pokemon.types[0]"></span>
-        <img [src]="pokemon.image" [alt]="pokemon.name">
+        <img [src]="pokemon.image" [alt]="pokemon.name" [class]="myPokemonsIds.includes((pokemon.id).toString()) ? 'ownPokemon' : 'dontOwnPokemon'">
       </section>
     
     </a>

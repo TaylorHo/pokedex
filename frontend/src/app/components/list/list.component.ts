@@ -14,6 +14,7 @@ export class ListComponent implements OnInit {
 
   public allPokemons: Array<any> = [];
   public myPokemons: Array<any> = [];
+  public myPokemonsIds: Array<string> = [];
   public pokemonToSearch: string = '';
   public lastSearch: string = '';
   public currentPage: number = 1;
@@ -49,6 +50,8 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
 
     const getMyPokemons = this.storageService.getSavedPokemons();
+    this.myPokemonsIds = getMyPokemons;
+
     this.apiService.listMultiplePokemons(getMyPokemons).subscribe(
       res => this.myPokemons = res.data
     );
@@ -105,8 +108,7 @@ export class ListComponent implements OnInit {
     } else {
       this.showOnlyMyPokemons = true;
     }
-
-    this.storageService.saveNewPokemon('1');
+    
   }
 
 }

@@ -278,7 +278,7 @@
     }
 
     .allPokemons {
-      img {
+      img.dontOwnPokemon {
         // for pokemons that wasn't captured yet
         -webkit-filter: brightness(0%);
         filter: brightness(0%);
