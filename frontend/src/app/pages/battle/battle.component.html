@@ -6,6 +6,7 @@
 
   <ng-template [ngIf]="isLoaded">
     <div class="wrap_pokemon">
+
       <section class="pokemon__name">
         <!-- Normal name of the pokemon -->
         <h1 class="slideInLeft">{{ pokemon.name }}</h1>
@@ -16,17 +17,22 @@
     
     
       <section class="pokemon__status">
+        <!-- Pokemon Main Image -->
         <img [src]="pokemon.image" [alt]="pokemon.name" class="slideInDown">
     
         <article class="pokemon__status__stats fadeIn">
+
+          <!-- Dice Roll Area -->
           <section class="fadeIn">
             <h3>{{ gameTitle }}</h3>
             <app-dice [diceValue]="diceValue"></app-dice>
           </section>
     
           <a class="btn btn__tertiary" (click)="rollDice()">Rolar Dado</a>
+
         </article>
       </section>
+
     </div>
   </ng-template>
 

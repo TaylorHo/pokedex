@@ -1,5 +1,9 @@
+// ------------------- Imports --------------------
 import { Component, OnInit } from '@angular/core';
+// ------------------------------------------------
 
+
+// --------------------- Main ---------------------
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,3 +17,4 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+// ------------------------------------------------

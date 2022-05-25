@@ -15,12 +15,12 @@
 
 			.pokemon__name {
 				position: relative;
+
 				display: flex;
 				align-items: flex-end;
 				justify-content: flex-end;
 
 				height: 75px;
-
 				padding: 0 2rem;
 
 				h1 {
@@ -37,8 +37,7 @@
 					color: rgba(255, 255, 255, 0.1);
 				}
 
-				h1,
-				h2 {
+				h1, h2 {
 					-webkit-animation-fill-mode: none !important;
 					animation-fill-mode: none !important;
 				}

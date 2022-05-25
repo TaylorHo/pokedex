@@ -1,3 +1,4 @@
+// --------- Default Button Styles ---------
 .btn {
 	display: flex;
 	justify-content: center;
@@ -24,7 +25,11 @@
 		background: var(--tertiary-color);
 	}
 }
+// -----------------------------------------
 
+
+// ------------ Hide Scrollbar -------------
 html::-webkit-scrollbar {
   display: none;
 }
+// -----------------------------------------

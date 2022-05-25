@@ -1,5 +1,9 @@
+// ------------------- Imports --------------------
 import { Component, OnInit } from '@angular/core';
+// ------------------------------------------------
 
+
+// --------------------- Main ---------------------
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
@@ -12,22 +16,23 @@ export class IntroComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.haveShowedTheIntro();
+  }
 
+  // Verify if the intro/help message was showed to the user at least one time
+  public haveShowedTheIntro() {
     const haveShowed = localStorage.getItem('pokemonIntroShowed');
 
     if(!haveShowed){
       this.showIntroMessage = true;
       localStorage.setItem('pokemonIntroShowed', 'yes');
     }
-
   }
 
-  public closeIntro() {
-    this.showIntroMessage = false;
-  }
-
-  public showIntro() {
-    this.showIntroMessage = true;
+  // Update the intro/help message visibility
+  public changeIntroState(state: boolean){
+    this.showIntroMessage = state;
   }
 
 }
+// ------------------------------------------------

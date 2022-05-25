@@ -1,5 +1,9 @@
+// ------------------- Imports --------------------
 import { Component, Input, OnInit } from '@angular/core';
+// ------------------------------------------------
 
+
+// --------------------- Main ---------------------
 @Component({
   selector: 'app-dice',
   templateUrl: './dice.component.html',
@@ -14,9 +18,12 @@ export class DiceComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Receive the component parameter, that will define the animation
+  // to be reproduced. The parameter can be a number from 1-6
   @Input()
   set diceValue(value: number) {
     this.diceClassName = `dice roll-${value}`;
   }
 
 }
+// ------------------------------------------------

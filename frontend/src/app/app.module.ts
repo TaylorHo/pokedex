@@ -1,18 +1,22 @@
-// ------------------- Default --------------------
+// ------------------- Imports --------------------
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+// ------------------------------------------------
+
+
+// --------------- Custom Components --------------
 import { AppComponent } from './app.component';
 // ------------------------------------------------
 
 
-// ---------------- CUstom Modules ----------------
+// ---------------- Custom Modules ----------------
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 // ------------------------------------------------
 
 
-// ---------------- Main Function -----------------
+// --------------------- Main ---------------------
 @NgModule({
   declarations: [
     AppComponent
@@ -27,3 +31,4 @@ import { PagesModule } from './pages/pages.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// ------------------------------------------------

@@ -1,9 +1,10 @@
-<!-- Search Bar | Pokemons -->
+<!-- Search Bar -->
 <form>
   <input type="text" #input (keyup)="onInput($event)" placeholder="Capturar Pokemon..."/>
   <img src="assets/search.svg" alt="Capturar Pokemon"/>
 </form>
 
+<!-- Toggle between "My Pokemons" and "All Pokemons" -->
 <section class="customFilters">
   
   <div class="switch-button">
@@ -16,7 +17,10 @@
 </section>
 
 
+<!-- Pokemons List -->
 <section class="pokelist fadeIn">
+
+  <!-- All Pokemons -->
   <ng-template ngFor let-pokemon [ngForOf]="allPokemons" *ngIf="!showOnlyMyPokemons">
     <a [routerLink]="['info', pokemon.id]" class="pokemon allPokemons" *ngIf="pokemon.id">
   
@@ -38,6 +42,8 @@
     
     </a>
   </ng-template>
+
+  <!-- My Pokemons -->
   <ng-template ngFor let-pokemon [ngForOf]="myPokemons" *ngIf="showOnlyMyPokemons">
     <a [routerLink]="['info', pokemon.id]" class="pokemon" *ngIf="pokemon.id">
   
@@ -59,12 +65,14 @@
     
     </a>
   </ng-template>
+  
 </section>
 
+
+<!-- Warning Messages -->
 <section class="allResults" *ngIf="!showOnlyMyPokemons">
   <p>Sem mais resultados</p>
 </section>
-
 <section class="allResults" *ngIf="showOnlyMyPokemons && myPokemons.length == 0">
   <p>Ainda não capturou nenhum pokemon</p>
 </section>

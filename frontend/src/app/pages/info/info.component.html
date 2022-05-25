@@ -6,6 +6,7 @@
 
   <ng-template [ngIf]="isLoaded">
     <div class="wrap_pokemon">
+
       <section class="pokemon__name">
         <!-- Normal name of the pokemon -->
         <h1 class="slideInLeft">{{ pokemon.name }}</h1>
@@ -16,12 +17,14 @@
     
     
       <section class="pokemon__status">
+        <!-- Pokemon Main Image -->
         <img [src]="pokemon.image" [alt]="pokemon.name" class="slideInDown">
     
         <article class="pokemon__status__stats fadeIn">
           <section>
             <h3>Estatísticas</h3>
     
+            <!-- A List of the Pokemon stats -->
             <ol *ngIf="ownThePokemon">
               <li *ngFor="let value of pokemon.stats">
                 {{ value.stat.replace("-", " ") }}
@@ -30,18 +33,22 @@
               </li>
             </ol>
 
+            <!-- Show when the Pokemon wasn't captured yet -->
             <span *ngIf="!ownThePokemon">
               Capture o Pokemon para ver seus dados!!
             </span>
 
           </section>
     
+          <!-- Buttons -->
           <section>
             <a [routerLink]="['/battle', pokemon.id]" class="btn btn__tertiary capturePokemon" *ngIf="!ownThePokemon">Capturar</a>
             <a [routerLink]="['']" class="btn btn__secondary">Voltar</a>
           </section>
+          
         </article>
       </section>
+
     </div>
   </ng-template>
 

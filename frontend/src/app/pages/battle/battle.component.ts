@@ -1,8 +1,16 @@
+// ------------------- Imports --------------------
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
-import { StorageService } from 'src/app/services/storage.service';
+// ------------------------------------------------
 
+
+// ------------------ Services --------------------
+import { ApiService } from '../../services/api.service';
+import { StorageService } from '../../services/storage.service';
+// ------------------------------------------------
+
+
+// --------------------- Main ---------------------
 @Component({
   selector: 'app-battle',
   templateUrl: './battle.component.html',
@@ -27,9 +35,11 @@ export class BattleComponent implements OnInit {
     this.verifyPokemonOwn();
   }
 
+  // Get the information of the current Pokemon, specified by the ID
   public getCurrentPokemon() {
-    const id = this.activatedRoute.snapshot.params['id'];
-    const pokemon = this.apiService.getSinglePokemon(id);
+    const pokemon = this.apiService.getSinglePokemon(
+      this.activatedRoute.snapshot.params['id']
+    );
 
     return pokemon.subscribe(res => {
       this.pokemon = res.data;
@@ -37,19 +47,22 @@ export class BattleComponent implements OnInit {
     });
   }
 
+  // Get a random number from 1-6 to verify if the user won or lost the battle
   public rollDice() {
     var roll = Math.floor((Math.random() * 6) + 1);
     this.diceValue = roll;
 
+    // await the dice animation to be reproduced
     setTimeout(() => {
 
-      if (roll > 3) {
-        this.gameTitle = "Parabéns!! Capturou o Pokemon!!";
+      if (roll > 3) { // won the battle!!
+        const id = this.activatedRoute.snapshot.params['id'];
 
-        this.storageService.saveNewPokemon(this.activatedRoute.snapshot.params['id']);
+        this.gameTitle = "Parabéns!! Capturou o Pokemon!!";
+        this.storageService.saveNewPokemon(id);
 
         setTimeout(() => {
-          this._router.navigate([`info`, this.activatedRoute.snapshot.params['id']]);
+          this._router.navigate([`info`, id]);
         }, 1.6 * 1000); // 1.6 seconds
 
       } else {
@@ -60,6 +73,8 @@ export class BattleComponent implements OnInit {
 
   }
 
+  // If the user already has captured this pokemon (speccified by the ID)
+  // then redirect from /battle/{id} to /info/{id}
   public verifyPokemonOwn() {
     const id = this.activatedRoute.snapshot.params['id'];
     const pokemon = this.storageService.verifyPokemon(id);
@@ -71,3 +86,4 @@ export class BattleComponent implements OnInit {
   }
 
 }
+// ------------------------------------------------

@@ -2,7 +2,7 @@
 // https://www.theappguruz.com/tag-tools/web/CSSAnimations/
 
 
-// Slide Down Animation
+// --------------- Slide Down Animation ---------------
 .slideInDown {
   -webkit-animation-name: slideInDown;
   animation-name: slideInDown;
@@ -33,9 +33,10 @@
     transform: translateY(0);
   }
 }
+// ----------------------------------------------------
 
 
-// Slide Left Animation
+// --------------- Slide Left Animation ---------------
 .slideInLeft {
   -webkit-animation-name: slideInLeft;
   animation-name: slideInLeft;
@@ -66,9 +67,10 @@
     transform: translateX(0);
   }
 }
+// ----------------------------------------------------
 
 
-// Slide Right Animation
+// -------------- Slide Right Animation ---------------
 .slideInRight {
   -webkit-animation-name: slideInRight;
   animation-name: slideInRight;
@@ -99,9 +101,10 @@
     transform: translateX(0);
   }
 }
+// ----------------------------------------------------
 
 
-// Fade In Animation
+// ---------------- Fade In Animation -----------------
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
@@ -117,4 +120,5 @@
 @keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
-} 
+}
+// ----------------------------------------------------

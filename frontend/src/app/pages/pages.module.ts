@@ -1,4 +1,4 @@
-// ------------------- Default --------------------
+// ------------------- Imports --------------------
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // ------------------------------------------------
@@ -17,7 +17,7 @@ import { BattleComponent } from './battle/battle.component';
 // ------------------------------------------------
 
 
-// ---------------- Main Function -----------------
+// --------------------- Main ---------------------
 @NgModule({
   declarations: [
     HomeComponent,
@@ -31,3 +31,4 @@ import { BattleComponent } from './battle/battle.component';
   ]
 })
 export class PagesModule { }
+// ------------------------------------------------

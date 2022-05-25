@@ -11,6 +11,7 @@
     border-radius: 50%;
 
     cursor: pointer;
+
   }
 
   section {
@@ -29,7 +30,6 @@
     background-color: rgba($color: #000000, $alpha: .5);
 
     .modal {
-
       
       margin: 20vh 5vw 0;
 
@@ -53,6 +53,7 @@
         box-shadow: 4px 4px 20px rgba($color: #000, $alpha: .4);
 
         &__close {
+
           background-color: var(--secondary-color);
           box-shadow: 1px 4px 10px rgba($color: #000, $alpha: .4);
           color: var(--white);
@@ -86,4 +87,5 @@
     }
 
   }
+  
 }

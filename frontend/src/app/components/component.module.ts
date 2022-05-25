@@ -1,4 +1,4 @@
-// ------------------- Default --------------------
+// ------------------- Imports --------------------
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -13,7 +13,7 @@ import { IntroComponent } from './intro/intro.component';
 // ------------------------------------------------
 
 
-// ---------------- Main Function -----------------
+// --------------------- Main ---------------------
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -33,3 +33,4 @@ import { IntroComponent } from './intro/intro.component';
   ]
 })
 export class ComponentsModule { }
+// ------------------------------------------------

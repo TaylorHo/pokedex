@@ -1,13 +1,16 @@
-<span (click)="showIntro()">?</span>
+<!-- Fixed Button to show the Intro/Help when pressed -->
+<span (click)="changeIntroState(true)">?</span>
 
+<!-- Intro/Help message -->
 <section *ngIf="showIntroMessage" class="fadeIn">
   <div class="modal">
     <div class="modal__content">
 
-      <a class="modal__content__close" (click)="closeIntro()">Fechar</a>
+      <!-- Close Button -->
+      <a class="modal__content__close" (click)="changeIntroState(false)">Fechar</a>
   
+      <!-- Instructions -->
       <h2>Como Jogar?</h2>
-  
       <p><strong>1.</strong> Procure um Pokemon pelo nome ou pela lista (acessando a aba "Todos os Pokemons").</p><br/>
       <p><strong>2.</strong> Selecione o Pokemon que deseja capturar, e clique em "Capturar"</p><br/>
       <p><strong>3.</strong> Clique em "Rolar o Dado". Se você tirar um valor maior que 3, capturou o Pokemon com sucesso!! Se não, tente novamente!</p><br/>
