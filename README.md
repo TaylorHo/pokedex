@@ -185,7 +185,7 @@ Infelizmente tive contratempos (complicações de saúde) durante a realização
 
 Por este motivo, deixo alguns trabalhos meus em Flutter para caso queiram dar uma olhada:
 
-- [Abnormal World](https://abnormal-world.vercel.app/#/) (jogo ainda em desenvolvimento)
+- [Abnormal World](https://hotay.live/abnormal-world/) (jogo ainda em desenvolvimento)
   - É um projeto privado, por isso não irei disponibilizar o repositório.
   - Ainda está em desenvolvimento, mas da parte que está pronta, tenho builds para Android, Web, Linux e Windows (falta apenas para MacOS e IOS, visto que não tenho um Mac para buildar para plataformas da Apple)
 - [Julia's Art Gallery](https://github.com/TaylorHo/art_gallery)
